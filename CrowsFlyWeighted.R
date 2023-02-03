@@ -53,7 +53,7 @@ for(i in 1:nrow(origins)) {
       # Define time cutoff (in minutes)
       cutoff <- 60
       intersected_points <- as.data.frame(intersected_points) %>%
-      mutate(decay_weighted_opps = grid_code * exp(log(0.5) * (60*(dist * 0.000621371) / speed) / cutoff))
+      mutate(decay_weighted_opps = grid_code * exp(log(0.5) / (cutoff * 60) * (((60 * dist * 0.000621371) / speed) * 60)))
       
       # Sum decay-weighted opportunities by origin
       access <- sum(intersected_points$decay_weighted_opps)
