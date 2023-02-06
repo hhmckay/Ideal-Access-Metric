@@ -29,7 +29,7 @@ for(i in 1:nrow(origins)) {
   
   # Create a buffer around the origin point and select points within that buffer
   # Define buffer distance (in miles)
-  buffer_dis <- 5
+  buffer_dis <- 20
   buffer <- st_buffer(origins[i, ], (buffer_dis * 1609.34))
   intersected_points <- st_intersection(Dest_Points, buffer)
   
